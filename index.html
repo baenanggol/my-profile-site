@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noel - 서버 개발자 포트폴리오</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-out forwards;
+        }
+
+        .nav-active {
+            border-bottom: 2px solid #3b82f6;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- 헤더/네비게이션 -->
+    <header class="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
+                noel
+            </div>
+            <ul class="hidden md:flex space-x-12">
+                <li><a href="#about" class="text-white hover:text-blue-300 transition font-medium text-sm tracking-wide">ABOUT</a></li>
+                <li><a href="#skills" class="text-white hover:text-purple-300 transition font-medium text-sm tracking-wide">SKILLS</a></li>
+                <li><a href="#projects" class="text-white hover:text-green-300 transition font-medium text-sm tracking-wide">PROJECTS</a></li>
+                <li><a href="#contact" class="text-white hover:text-blue-300 transition font-medium text-sm tracking-wide">CONTACT</a></li>
+            </ul>
+            <div class="md:hidden">
+                <button id="menuBtn" class="text-2xl text-white hover:text-blue-300 transition">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- 모바일 메뉴 -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white/10 backdrop-blur-md border-t border-white/20">
+            <ul class="flex flex-col space-y-4 px-4 py-4">
+                <li><a href="#about" class="text-white hover:text-blue-300 transition font-medium block text-sm tracking-wide">ABOUT</a></li>
+                <li><a href="#skills" class="text-white hover:text-purple-300 transition font-medium block text-sm tracking-wide">SKILLS</a></li>
+                <li><a href="#projects" class="text-white hover:text-green-300 transition font-medium block text-sm tracking-wide">PROJECTS</a></li>
+                <li><a href="#contact" class="text-white hover:text-blue-300 transition font-medium block text-sm tracking-wide">CONTACT</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+            <div class="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+            <div class="absolute bottom-10 left-1/2 w-72 h-72 bg-green-400 rounded-full mix-blend-multiply filter blur-3xl"></div>
+        </div>
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+
+        <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fadeInUp">
+            <p class="text-lg md:text-xl text-gray-300 font-light mb-6 tracking-wider">서버 개발자</p>
+            <h1 class="text-6xl md:text-8xl font-black mb-6 leading-tight">
+                <span class="text-white">
+                    The future of<br/>
+                </span>
+                <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
+                    System Architecture
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-12 font-light">
+                데이터 성능 최적화와 효율적인 모델링으로<br>
+                안정적이고 확장 가능한 시스템을 구축합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#projects" class="inline-block border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-slate-900 transform hover:scale-105 transition duration-300">
+                    프로젝트 보기
+                </a>
+                <a href="#contact" class="inline-block bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
+                    연락하기
+                </a>
+            </div>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+                <p class="text-gray-400 text-sm tracking-widest mb-4">SCROLL</p>
+                <div class="flex justify-center">
+                    <div class="w-0.5 h-8 bg-gradient-to-b from-white to-transparent animate-bounce"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About 섹션 -->
+    <section id="about" class="py-20 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 bg-clip-text text-transparent">
+                    About Me
+                </span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        저는 쿼리 튜닝과 데이터 모델링에 깊은 이해를 가진 서버 개발자입니다.
+                        데이터베이스 최적화를 통해 시스템의 성능을 극대화하고,
+                        복잡한 비즈니스 요구사항을 효율적인 아키텍처로 구현하는 것을 좋아합니다.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Java와 C#을 주요 언어로 사용하며, Oracle 데이터베이스에 대한 전문성을 바탕으로
+                        엔터프라이즈급 애플리케이션 개발 및 운영 경험을 보유하고 있습니다.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-100 via-purple-100 to-green-100 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-gray-800">주요 관심사</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 font-bold mr-4">→</span>
+                            <span class="text-gray-700">데이터베이스 쿼리 최적화 및 성능 튜닝</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-purple-600 font-bold mr-4">→</span>
+                            <span class="text-gray-700">효율적인 데이터 모델링 및 스키마 설계</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-600 font-bold mr-4">→</span>
+                            <span class="text-gray-700">확장 가능한 백엔드 시스템 구축</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills 섹션 -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 bg-clip-text text-transparent">
+                    Technical Skills
+                </span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 프로그래밍 언어 -->
+                <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold mb-4 text-blue-600">언어</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">Java</span>
+                            <div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-600" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">C#</span>
+                            <div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-blue-600" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 데이터베이스 -->
+                <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold mb-4 text-purple-600">데이터베이스</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">Oracle</span>
+                            <div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-purple-600" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">SQL Tuning</span>
+                            <div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-purple-600" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 전문성 -->
+                <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition">
+                    <h3 class="text-xl font-bold mb-4 text-green-600">전문성</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">성능 최적화</span>
+                            <div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-green-600" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-semibold">모델링 설계</span>
+                            <div class="w-32 h-2 bg-gray-200 rounded-full overflow-hidden">
+                                <div class="h-full bg-green-600" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 flex flex-wrap gap-3 justify-center">
+                <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-semibold">Java</span>
+                <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full font-semibold">Oracle</span>
+                <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full font-semibold">C#</span>
+                <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full font-semibold">Query Tuning</span>
+                <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full font-semibold">Data Modeling</span>
+                <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full font-semibold">Backend</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects 섹션 -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-12 text-center">
+                <span class="bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 bg-clip-text text-transparent">
+                    Projects
+                </span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- 프로젝트 1 -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform hover:scale-105 group">
+                    <div class="bg-gradient-to-r from-blue-600 to-blue-400 h-40 flex items-center justify-center">
+                        <i class="fas fa-bus text-white text-6xl opacity-20"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-blue-700 mb-2">코버스서비스 운영</h3>
+                        <p class="text-gray-700 mb-4">
+                            고속 버스 예약 및 운영 시스템의 핵심 백엔드 서비스 개발 및 운영
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-sm font-semibold">Java</span>
+                            <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-sm font-semibold">Oracle</span>
+                        </div>
+                        <p class="text-sm text-gray-600">대규모 사용자를 지원하는 안정적인 예약 시스템 구현</p>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 2 -->
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform hover:scale-105 group">
+                    <div class="bg-gradient-to-r from-purple-600 to-purple-400 h-40 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-white text-6xl opacity-20"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-purple-700 mb-2">고속시외버스 모바일</h3>
+                        <p class="text-gray-700 mb-4">
+                            모바일 애플리케이션을 지원하는 백엔드 API 개발 및 운영
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-sm font-semibold">Java</span>
+                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-sm font-semibold">REST API</span>
+                        </div>
+                        <p class="text-sm text-gray-600">모바일 전용 최적화된 API 설계 및 성능 개선</p>
+                    </div>
+                </div>
+
+                <!-- 프로젝트 3 -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform hover:scale-105 group">
+                    <div class="bg-gradient-to-r from-green-600 to-green-400 h-40 flex items-center justify-center">
+                        <i class="fas fa-hospital-user text-white text-6xl opacity-20"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-green-700 mb-2">아산병원 수련의 술기 시스템</h3>
+                        <p class="text-gray-700 mb-4">
+                            의료 교육 플랫폼의 통합 관리 시스템 개발
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-semibold">Java</span>
+                            <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-semibold">C#</span>
+                        </div>
+                        <p class="text-sm text-gray-600">크로스 플랫폼 의료 데이터 관리 시스템 구축</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact 섹션 -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-green-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-8">
+                <span class="bg-gradient-to-r from-blue-600 via-purple-500 to-green-500 bg-clip-text text-transparent">
+                    Get In Touch
+                </span>
+            </h2>
+
+            <p class="text-lg text-gray-700 mb-12 max-w-2xl mx-auto">
+                프로젝트나 협업 기회에 관심이 있으신가요?
+                언제든지 연락주세요!
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-8 mb-12">
+                <a href="mailto:ruddybombu@naver.com" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-slate-900 transform hover:scale-105 transition duration-300">
+                    <i class="fas fa-envelope mr-3"></i>
+                    연락하기
+                </a>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-8 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold mb-6 text-gray-800">연락처 정보</h3>
+                <div class="space-y-4 text-left">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-blue-600 text-xl mr-4"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">이메일</p>
+                            <p class="font-semibold text-gray-800">ruddybombu@naver.com</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-200 my-4"></div>
+                    <div class="flex items-center">
+                        <i class="fas fa-user text-purple-600 text-xl mr-4"></i>
+                        <div>
+                            <p class="text-sm text-gray-500">직업</p>
+                            <p class="font-semibold text-gray-800">서버 개발자 | Java & C# 개발자</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-900 text-gray-400 py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2024 Noel. 모든 권리 보유.</p>
+            <p class="mt-2 text-sm">쿼리 튜닝과 데이터 모델링의 전문가</p>
+        </div>
+    </footer>
+
+    <script>
+        // 모바일 메뉴 토글
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn?.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 네비게이션 링크 클릭 시 메뉴 닫기
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // 스크롤 시 네비게이션 활성화
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

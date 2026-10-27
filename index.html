@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noel - 서버 개발자 포트폴리오</title>
+    <title>주도영 - 서버 개발자 포트폴리오</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -48,31 +48,31 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
     <!-- 헤더/네비게이션 -->
-    <header class="sticky top-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm">
         <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <div class="text-3xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-green-400 bg-clip-text text-transparent">
-                noel
+                주도영
             </div>
             <ul class="hidden md:flex space-x-12">
-                <li><a href="#about" class="text-white hover:text-blue-300 transition font-medium text-sm tracking-wide">ABOUT</a></li>
-                <li><a href="#skills" class="text-white hover:text-purple-300 transition font-medium text-sm tracking-wide">SKILLS</a></li>
-                <li><a href="#projects" class="text-white hover:text-green-300 transition font-medium text-sm tracking-wide">PROJECTS</a></li>
-                <li><a href="#contact" class="text-white hover:text-blue-300 transition font-medium text-sm tracking-wide">CONTACT</a></li>
+                <li><a href="#about" class="text-slate-700 hover:text-blue-600 transition font-medium text-sm tracking-wide">ABOUT</a></li>
+                <li><a href="#skills" class="text-slate-700 hover:text-purple-600 transition font-medium text-sm tracking-wide">SKILLS</a></li>
+                <li><a href="#projects" class="text-slate-700 hover:text-green-600 transition font-medium text-sm tracking-wide">PROJECTS</a></li>
+                <li><a href="#contact" class="text-slate-700 hover:text-blue-600 transition font-medium text-sm tracking-wide">CONTACT</a></li>
             </ul>
             <div class="md:hidden">
-                <button id="menuBtn" class="text-2xl text-white hover:text-blue-300 transition">
+                <button id="menuBtn" class="text-2xl text-slate-700 hover:text-blue-600 transition">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
         </nav>
 
         <!-- 모바일 메뉴 -->
-        <div id="mobileMenu" class="hidden md:hidden bg-white/10 backdrop-blur-md border-t border-white/20">
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-200">
             <ul class="flex flex-col space-y-4 px-4 py-4">
-                <li><a href="#about" class="text-white hover:text-blue-300 transition font-medium block text-sm tracking-wide">ABOUT</a></li>
-                <li><a href="#skills" class="text-white hover:text-purple-300 transition font-medium block text-sm tracking-wide">SKILLS</a></li>
-                <li><a href="#projects" class="text-white hover:text-green-300 transition font-medium block text-sm tracking-wide">PROJECTS</a></li>
-                <li><a href="#contact" class="text-white hover:text-blue-300 transition font-medium block text-sm tracking-wide">CONTACT</a></li>
+                <li><a href="#about" class="text-slate-700 hover:text-blue-600 transition font-medium block text-sm tracking-wide">ABOUT</a></li>
+                <li><a href="#skills" class="text-slate-700 hover:text-purple-600 transition font-medium block text-sm tracking-wide">SKILLS</a></li>
+                <li><a href="#projects" class="text-slate-700 hover:text-green-600 transition font-medium block text-sm tracking-wide">PROJECTS</a></li>
+                <li><a href="#contact" class="text-slate-700 hover:text-blue-600 transition font-medium block text-sm tracking-wide">CONTACT</a></li>
             </ul>
         </div>
     </header>
@@ -236,6 +236,21 @@
                 <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-full font-semibold">Data Modeling</span>
                 <span class="px-4 py-2 bg-green-100 text-green-700 rounded-full font-semibold">Backend</span>
             </div>
+
+            <!-- 자격증 -->
+            <div class="mt-12 max-w-2xl mx-auto bg-white rounded-xl shadow-md p-8 hover:shadow-lg transition">
+                <h3 class="text-xl font-bold mb-4 text-purple-600">자격증</h3>
+                <div class="flex items-center">
+                    <div class="w-14 h-14 flex-shrink-0 rounded-full bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center mr-5">
+                        <i class="fas fa-certificate text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-gray-800">DAP (Data Architecture Professional)</p>
+                        <p class="text-sm text-gray-600">데이터 모델링 자격증 취득</p>
+                        <p class="text-sm text-gray-500 mt-1">데이터산업진흥원 · 2026년 취득</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -251,9 +266,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <!-- 프로젝트 1 -->
                 <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform hover:scale-105 group">
-                    <div class="bg-gradient-to-r from-blue-600 to-blue-400 h-40 flex items-center justify-center">
-                        <i class="fas fa-bus text-white text-6xl opacity-20"></i>
-                    </div>
+                    <img src="images/project-bus.svg" alt="코버스서비스 운영" class="w-full h-40 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-blue-700 mb-2">코버스서비스 운영</h3>
                         <p class="text-gray-700 mb-4">
@@ -269,9 +282,7 @@
 
                 <!-- 프로젝트 2 -->
                 <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform hover:scale-105 group">
-                    <div class="bg-gradient-to-r from-purple-600 to-purple-400 h-40 flex items-center justify-center">
-                        <i class="fas fa-mobile-alt text-white text-6xl opacity-20"></i>
-                    </div>
+                    <img src="images/project-mobile.svg" alt="고속시외버스 모바일" class="w-full h-40 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-purple-700 mb-2">고속시외버스 모바일</h3>
                         <p class="text-gray-700 mb-4">
@@ -287,9 +298,7 @@
 
                 <!-- 프로젝트 3 -->
                 <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-md overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 transform hover:scale-105 group">
-                    <div class="bg-gradient-to-r from-green-600 to-green-400 h-40 flex items-center justify-center">
-                        <i class="fas fa-hospital-user text-white text-6xl opacity-20"></i>
-                    </div>
+                    <img src="images/project-hospital.svg" alt="아산병원 수련의 술기 시스템" class="w-full h-40 object-cover">
                     <div class="p-6">
                         <h3 class="text-2xl font-bold text-green-700 mb-2">아산병원 수련의 술기 시스템</h3>
                         <p class="text-gray-700 mb-4">
@@ -321,7 +330,7 @@
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-8 mb-12">
-                <a href="mailto:ruddybombu@naver.com" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-slate-900 transform hover:scale-105 transition duration-300">
+                <a href="mailto:ruddybombu@naver.com" class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition duration-300">
                     <i class="fas fa-envelope mr-3"></i>
                     연락하기
                 </a>
@@ -353,7 +362,7 @@
     <!-- 푸터 -->
     <footer class="bg-gray-900 text-gray-400 py-20">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p>&copy; 2024 Noel. 모든 권리 보유.</p>
+            <p>&copy; 2024 주도영. 모든 권리 보유.</p>
             <p class="mt-2 text-sm">쿼리 튜닝과 데이터 모델링의 전문가</p>
         </div>
     </footer>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15803d"/><stop offset="1" stop-color="#4ade80"/></linearGradient>
+  </defs>
+  <rect width="480" height="160" fill="url(#bg)"/>
+  <circle cx="410" cy="30" r="60" fill="#fff" opacity=".1"/>
+  <circle cx="50" cy="140" r="70" fill="#fff" opacity=".08"/>
+  <rect x="150" y="34" width="180" height="100" rx="10" fill="#fff"/>
+  <rect x="150" y="34" width="180" height="16" rx="10" fill="#166534"/>
+  <rect x="150" y="42" width="180" height="8" fill="#166534"/>
+  <rect x="212" y="60" width="14" height="44" rx="3" fill="#16a34a"/>
+  <rect x="197" y="75" width="44" height="14" rx="3" fill="#16a34a"/>
+  <polyline points="256,98 272,98 280,76 290,114 300,86 308,98 318,98" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="164" y="114" width="70" height="6" rx="3" fill="#bbf7d0"/>
+  <rect x="164" y="124" width="46" height="6" rx="3" fill="#bbf7d0"/>
+</svg>
